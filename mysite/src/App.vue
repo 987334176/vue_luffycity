@@ -1,80 +1,77 @@
 <template>
+  <!--<link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">-->
+  <!--<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>-->
+  <!--<script >hljs.initHighlightingOnLoad();</script>-->
   <div id="app">
-    <h1>所有的专题课</h1>
-    <div v-for="(item,index) in message" :key="index">
-      <!--<p>{{ item.id }}</p>-->
-      <h3>专题课名</h3>
-      <p>{{ item.name }}</p>
-      <!--<p>{{ item.course_img }}</p>-->
-      <h3>课程类型</h3>
-      <p>{{ item.course_type }}</p>
-      <h3>学位课程简介</h3>
-      <p>{{ item.brief }}</p>
-      <h3>等级</h3>
-      <p>{{ item.level_name }}</p>
-      <h3>发布时间</h3>
-      <p>{{ item.pub_date }}</p>
-      <h3>建议学习周期(天)</h3>
-      <p>{{ item.period }}</p>
-      <h3>课程顺序</h3>
-      <p>{{ item.order }}</p>
-      <h3>课件路径</h3>
-      <p>{{ item.attachment_path }}</p>
-      <h3>状态</h3>
-      <p>{{ item.status }}</p>
+    <!--导航条-->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <img src="./assets/login.png" width="30px" height="30px" style="margin-top: -5px;">
+          </a>
+        </div>
 
-      <!--<p>{{ item.template_id }}</p>-->
-      <!--<h3>课程子类</h3>-->
-      <!--<p>{{ item.sub_category }}</p>-->
-      <h3>奖学金</h3>
-      <p>{{ item.degree_course }}</p>
-    </div>
-    <!--<img src="./assets/logo.png">-->
-    <!--<router-view/>-->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <router-link to="/" tag='li' activeClass='active' exact>
+              <a>首页</a>
+            </router-link>
+            <router-link to="/course" tag='li' activeClass='active' exact>
+              <a>课程</a>
+            </router-link>
+            <router-link to="/news" tag='li' activeClass='active' exact>
+              <a>深科技</a>
+            </router-link>
+
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><router-link to="/login">登录</router-link></li>
+            <li class="dropdown">
+            <li><a href="#">注册</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!--路由出口-->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
+  //导入bootstrap
+  import 'bootstrap/dist/css/bootstrap.min.css'
+  // import jQuery from 'jquery'
+  export default {
+    name: 'App',
+    data:function(){
+      return {}
+    },
+    //计算属性
+    computed:{
+      allRoutes:function(){
+        // 从Vue实例里面取出所有的路由
+        // console.log(this.$router.options.routes)
+        return this.$router.options.routes
+      }
+    }
+  }
 
-export default {
-  name: 'App',
-  data:function () {  //data必须是函数
-    return {
-      message:[],  //声明data变量
-    }
-  },
-  mounted:function(){
-    this.getAlldata();
-  },
-  methods:{   //定义方法对象
-    getAlldata:function(){
-      console.log(111);
-      let that = this;
-        axios({
-          method: 'get',
-          url: 'http://127.0.0.1:8000/api/v1/courses/thematic/',
-        })
-        .then(function (res) {
-          console.log('连接成功');
-          console.log(res);
-          that.message = res.data.data;
-        })
-        .catch(function (err) {
-          console.log('连接失败'+err);
-        })
-    }
-  },
-}
 </script>
 
 <style>
-/*#app {*/
-  /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
-  /*margin-top: 60px;*/
-/*}*/
+  a{ text-decoration:none}
+  a:hover{
+    text-decoration:none;
+  }
 </style>
