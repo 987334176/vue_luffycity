@@ -1,7 +1,34 @@
 <template>
   <div id="app">
-    <button v-on:click="get_list">获取</button>
-    <div>{{ message }}</div>
+    <h1>所有的专题课</h1>
+    <div v-for="(item,index) in message" :key="index">
+      <!--<p>{{ item.id }}</p>-->
+      <h3>专题课名</h3>
+      <p>{{ item.name }}</p>
+      <!--<p>{{ item.course_img }}</p>-->
+      <h3>课程类型</h3>
+      <p>{{ item.course_type }}</p>
+      <h3>学位课程简介</h3>
+      <p>{{ item.brief }}</p>
+      <h3>等级</h3>
+      <p>{{ item.level_name }}</p>
+      <h3>发布时间</h3>
+      <p>{{ item.pub_date }}</p>
+      <h3>建议学习周期(天)</h3>
+      <p>{{ item.period }}</p>
+      <h3>课程顺序</h3>
+      <p>{{ item.order }}</p>
+      <h3>课件路径</h3>
+      <p>{{ item.attachment_path }}</p>
+      <h3>状态</h3>
+      <p>{{ item.status }}</p>
+
+      <!--<p>{{ item.template_id }}</p>-->
+      <!--<h3>课程子类</h3>-->
+      <!--<p>{{ item.sub_category }}</p>-->
+      <h3>奖学金</h3>
+      <p>{{ item.degree_course }}</p>
+    </div>
     <!--<img src="./assets/logo.png">-->
     <!--<router-view/>-->
   </div>
@@ -12,48 +39,32 @@
 
 export default {
   name: 'App',
-  data:function () {
+  data:function () {  //data必须是函数
     return {
-      message:'',  //声明title变量
-      // content:''
+      message:[],  //声明data变量
     }
+  },
+  mounted:function(){
+    this.getAlldata();
   },
   methods:{   //定义方法对象
-    get_list:function(){
+    getAlldata:function(){
       console.log(111);
-      // this.message = '111';
-      // console.log(this.HOST )
-      axios.get('/courses/thematic/')
-        .then((res)=> {
-          console.log('我要去后端拉取笔记数据啦！');
-          console.log(res.data.data);
-          messages = res.data.data;
-          // 将获取到的笔记数据 放到大仓库中
-          // _this.$store.state.noteList = res.data
-          // context.commit('INITNOTELIST', res.data.data)
+      let that = this;
+        axios({
+          method: 'get',
+          url: 'http://127.0.0.1:8000/api/v1/courses/thematic/',
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+        .then(function (res) {
+          console.log('连接成功');
+          console.log(res);
+          that.message = res.data.data;
+        })
+        .catch(function (err) {
+          console.log('连接失败'+err);
+        })
     }
   },
-  // computed: {
-  //     // 计算属性的 getter
-  //     reversedMessage: function () {
-  //       // `this` 指向 vm 实例
-  //       axios.get('/courses/thematic/')
-  //         .then((res)=> {
-  //           console.log('我要去后端拉取笔记数据啦！');
-  //           console.log(res.data.data)
-  //           // 将获取到的笔记数据 放到大仓库中
-  //           // _this.$store.state.noteList = res.data
-  //           // context.commit('INITNOTELIST', res.data.data)
-  //         })
-  //         .catch(function (error) {
-  //           console.log(error);
-  //         });
-  //     }
-  // },
 }
 </script>
 

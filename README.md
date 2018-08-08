@@ -18,7 +18,7 @@ webpack + Vue + VueRouter + VueX，使用vue-cli构建项目
 | /          | 首页 | 无 |
 
 ## 功能说明
-vue 跨域问题，未解决！
+访问首页时,会从后端拉取数据,并自动渲染！
 
 ## 运行方式
 请确保已经安装了node和webpack
