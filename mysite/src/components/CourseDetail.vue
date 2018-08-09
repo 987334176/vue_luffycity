@@ -57,47 +57,20 @@
         <div class="container">
           <div v-for="(item,index) in message" :key="index">
             <h2>课程概述</h2>
-            <h4>
+            <h3>
               {{item.why_study}}
-            </h4>
-            <h6 class="text-center">
+            </h3>
+            <h3 class="text-center">
               可以根据不同的学习情况购买不一样的学习套餐哦！
-            </h6>
+            </h3>
             <div id="course" style="margin-top: 66px" _v-3e2ebd6a="">
 
               <div v-for="(pricing,index) in item.price_strategy" :key="index" style="text-align:center;"
               >
                 <input type="radio" v-bind:value="pricing.id" v-on:click="choice_price" v-model="picked" ref="input1">
                 <span>¥{{pricing.price}}</span>
-                <!--<br>-->
                 <span>有效期{{pricing.valid_period}}</span>
-                <!--<span-->
-                <!--class="limit" ></span>-->
-                <!--<label for="one">{{message[index]}}</label>-->
                 <br>
-                <!--<input type="radio" id="two" value="Two" v-model="picked">-->
-                <!--<label for="two">Two</label>-->
-                <!--<br>-->
-
-
-                <!--<li class="price-wrap">-->
-                <!--<p style="display: none">{{pricing.id}}</p>-->
-
-                <!--&lt;!&ndash;<input type="text" v-model="pick" v-bind:value="a">&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<a href="#" v-on:click="add_car">&ndash;&gt;-->
-                <!--<span class="price">¥&nbsp;{{pricing.price}}</span> <span-->
-                <!--class="limit" id="30">有效期{{pricing.valid_period}}</span>-->
-                <!--&lt;!&ndash;</a>&ndash;&gt;-->
-                <!--</li>-->
-
-
-                <!--<li class="price-wrap" id="40"><span class="price">¥&nbsp;199</span> <span-->
-                <!--class="limit" id="60">有效期2个月</span></li>-->
-                <!--<li class="price-wrap" id="41"><span class="price">¥&nbsp;299</span> <span-->
-                <!--class="limit" id="90">有效期3个月</span></li>-->
-                <!--<li class="price-wrap" id="42"><span class="price">¥&nbsp;399</span> <span-->
-                <!--class="limit" id="180">有效期6个月</span></li>&lt;!&ndash;v-for-end&ndash;&gt;-->
               </div>
               <div class="clearfix"></div>
               <div style="justify-content: center; margin-top: 66px; display: none;" _v-3e2ebd6a="">
@@ -115,17 +88,6 @@
                 <button type="button" class="btn btn-lg btn-warning" style="margin-left: 100px" v-on:click="add_car">
                   加入购物车
                 </button>
-                <!--<div class="pur-tip-wrap" _v-3e2ebd6a="">-->
-                <!--<div class="sub-tip" _v-3e2ebd6a=""><img style="margin-left: 17px"-->
-                <!--src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAVFBMVEUAAACDz0t5xz94x0CA4kB4xz95yUF5xkB5x0B5x0B5x0B4xz94x0B7zEJ5xz95x0F7ykF5yEB6x0B5yEJ5xj95x0B5yUN5zkd5xkB5xz95x0B4xj+60V+RAAAAG3RSTlMAC7i/B9VH96Zp7+mMINxRKHZePcKeMRLPyoPMh/HAAAABDklEQVQ4y43T6W6EIBSG4Q8RBFncdTrn/u+zsWWqDMv0/QXJkxwlgCin1eq7XjTbfKAQmx50i8851GpDbwmZqFFQpuZttOwpmx/vSlOpfrmUpHLGITT2VEmw8I+Cqqnrw6rtp2LmE+Mnm+hjEsCDSn0Nln7aAFeexQBBZwbQNcXCUS1QFdU2YTNhraqQha+qkEJXVaEV/Ws800VFHCKsWmBI1DX0tZ1xurwiiy2sOnm6vCKNmSKXVTTioMgtOeUB8NhlFFkAM0UuqPReisixpnDLh+iOmUR14W01VO2J3w5fUw3+81AFw1+LKSqHW04UJjJEMZVB3RNJO0/OyyGX3MxlvN1RbJmsWrmyekTUN6lQaIyfaFE5AAAAAElFTkSuQmCC"-->
-                <!--width="14" height="14" alt="" _v-3e2ebd6a=""> <span-->
-                <!--class="sub-text" _v-3e2ebd6a=""></span></div>-->
-                <!--</div>-->
-                <!--<div class="pur-warn-wrap" _v-3e2ebd6a="">-->
-                <!--<div class="sub-tip" _v-3e2ebd6a=""><img style="margin-left: 17px"-->
-                <!--src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAIVBMVEUAAAD/qwD/qwD/rwD/rAD/qgD/qwD/qwD/qgD/qgD/qgDW3ydwAAAACnRSTlMAQPMbbNm2m07Gl35RogAAAH9JREFUGNNjAAJmtyDVFAMgA8SuWgUEyyG8plVgoAFis6yCAgcgpwtIr5wFJFYAdWgB6YVSQGKRAQP7KhhnVQGDFYKzmMELwVnCkIXgLGOIQnCWMmghOItQOCjKUAxAMRpoKdhtEEvZV8FBAcShS7zADkX2AprnEN7GDBBEUAEAh3uLdcv6paQAAAAASUVORK5CYII="-->
-                <!--width="14" height="14" alt="" _v-3e2ebd6a=""> <span-->
-                <!--class="warn-text" _v-3e2ebd6a=""></span></div>-->
               </div>
             </div>
             <div style="height: 200px"></div>
@@ -140,6 +102,7 @@
 </template>
 
 <script>
+  import Swal from 'sweetalert2'
   export default {
     name: "CourseDetail",
     data: function () {  //data必须是函数
@@ -147,23 +110,27 @@
         message: [],  //声明data变量
         strategy_id: '', //策略id
         picked: '',
-        list: [],
+        // list: [],
       }
     },
     mounted: function () {
       this.getAlldata();
+      // console.log(this.$route.params);
+      // console.log(this.$route.params.id)
+      // console.log( 'http://127.0.0.1:8000/api/v1/courses/'+this.$route.params.id+'/')
     },
     methods: {   //定义方法对象
       getAlldata: function () {
-        console.log(111);
+        // console.log(111);
         let that = this;
         this.$axios.request({
-          url: 'http://127.0.0.1:8000/api/v1/courses/1/',
+          //this.$route.params.id 表示获取当前url中的id参数
+          url: 'http://127.0.0.1:8000/api/v1/courses/'+this.$route.params.id+'/',
           method: 'GET',
         })
           .then(function (res) {
             console.log('连接成功');
-            console.log(res);
+            // console.log(res);
             that.message = res.data.data;
           })
           .catch(function (err) {
@@ -179,20 +146,20 @@
           url: 'http://127.0.0.1:8000/api/v1/shoppingcart/',
           method: 'POST',
           data: {
-            picked: this.picked,
+            courseid: this.$route.params.id, //当前课程id
+            policyid: this.picked,
           },
           // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         })
           .then(function (res) {
-            console.log('连接成功');
-            console.log(res);
+            console.log('加入购物车成功');
             that.message = res.data.data;
-            alert('加入购物车成功!');
+            Swal("加入购物车成功！", "success！","success")
             window.location.reload();
           })
           .catch(function (err) {
-            console.log('连接失败' + err);
-            alert('加入购物车失败!');
+            // console.log('连接失败' + err);error
+            Swal("加入购物车失败！", "error！","error");
             window.location.reload();
           })
       }

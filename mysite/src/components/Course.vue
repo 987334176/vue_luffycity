@@ -15,7 +15,9 @@
               {{item.name}}
             </h3>
             <p>
-              <a href="/course/1">{{item.brief}}</a>
+              <!--<a :href="/course/item.id">{{item.brief}}</a>-->
+              <!--拼接url，item.id表示课程id-->
+              <router-link :to="{ path: '/course/'+item.id}">{{item.brief}}</router-link>
             </p>
             <p>
               <span>{{item.level_name}}</span> <span class="pull-right">{{item.period}}天</span>

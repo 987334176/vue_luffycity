@@ -39,6 +39,7 @@
             <li><router-link to="/login">登录</router-link></li>
             <li class="dropdown">
             <li><a href="#">注册</a></li>
+            <li><router-link to="/shopping_cart">购物车</router-link></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -51,6 +52,7 @@
 <script>
   //导入bootstrap
   import 'bootstrap/dist/css/bootstrap.min.css'
+  import 'bootstrap/dist/js/bootstrap.min.js'
   // import jQuery from 'jquery'
   export default {
     name: 'App',
