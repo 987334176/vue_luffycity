@@ -26,7 +26,8 @@
               {{item.name}}
             </td>
             <td>
-              <select class="form-control" style="width: 100px" v-model="selected">
+              <!--<select class="form-control" style="width: 100px" v-model="selected">-->
+                <select class="form-control" style="width: 100px">
                 <option v-for="(option,index) in item.price_policy_dict"
                         v-bind:value="option.id"
                 >
